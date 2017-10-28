@@ -1,0 +1,112 @@
+package Strings_programs;
+
+import java.util.Scanner;
+
+public class Palindrome_check 
+{
+
+	public static void main(String args[])
+	{
+		Scanner s =new Scanner(System.in);
+		String str=s.nextLine();
+		int num = Integer.valueOf(str);
+		int rem=0;int c=0;
+		int array[]=new int[size(num)];
+		int ce=1;
+		  while(num != 0)
+		  {
+		      rem = num%10;
+		     array[size(num)-ce]=rem;
+		      num/= 10;
+		
+	       }
+		  odd(array);
+		 // print(array);
+	}
+	
+	
+	
+	
+	static int size(int num)
+	  {int rem=0;int c=0;
+		  while(num != 0)
+		  {
+		      rem = num%10;
+		      c++;
+		      num/= 10;
+		  }return c;
+	  }
+	
+	static void odd(int odd[])
+	{
+		int mid=odd.length/2;int l=odd.length;
+		int arr[]=new int[l];
+		arr[mid+1]=odd[mid+1];
+		
+		//Store mid-1 element in temp
+		int temp[]=new int[l/2];
+		for(int j=0;j<=mid;j++)
+		{
+			temp[j]=odd[j];
+		}
+		//Store real number in arr
+		int loc=0;
+		for(int i=0;i<=mid;i++)
+		{
+			for(int i2=0;i2<=mid;i2++)
+			{
+				if(odd[i2]==odd[i])
+					continue;
+				
+				arr[loc]=temp[loc];
+				arr[loc-1-i]=temp[loc-1-i];
+			}
+		
+		}print(arr);
+		
+		
+	}
+	
+	
+  static	void print(int arr[])
+	{
+		for(int m=0;m<arr.length;m++)
+		{
+			System.out.print(arr[m] +" ");
+		}
+	}
+	
+	
+	
+	static int tonumber(int arr[])
+	{
+		 String s="";
+		 
+		  
+		  for(int i=0;i<arr.length;i++)
+		  {
+			 s=s+arr[i]; 
+			
+	  } int num= Integer.valueOf(s);
+	  return num;
+	}
+	
+        static boolean isPalindrome(int number) {
+        int palindrome = number; // copied number into variable
+        int reverse = 0;
+
+        while (palindrome != 0) {
+            int remainder = palindrome % 10;
+            reverse = reverse * 10 + remainder;
+            palindrome = palindrome / 10;
+        }
+
+        // if original and reverse of number is equal means
+        // number is palindrome in Java
+        if (number == reverse) {
+            return true;
+        }
+        return false;
+    }       
+	
+}
